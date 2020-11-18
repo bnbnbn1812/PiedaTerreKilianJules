@@ -1,3 +1,4 @@
+
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (objPosition) {
         document.getElementById("latitude").innerHTML = objPosition.coords.latitude;
@@ -28,3 +29,4 @@ if (navigator.geolocation) {
         maximumAge: 0
     });
 }
+
