@@ -7,5 +7,24 @@ if (navigator.geolocation) {
         document.getElementById("altitudeaccuracy").innerHTML = objPosition.coords.altitudeAccuracy;
         document.getElementById("heading").innerHTML = objPosition.coords.heading;
         document.getElementById("speed").innerHTML = objPosition.coords.speed;
-    }
+    }, function (objErreur) {
+        var strErreur = '';
+        switch (objErreur.code) {
+            case objErreur.PERMISSION_DENIED:
+                strErreur = "Vous n'avez pas donné la permission de déterminer votre position."
+                break;
+            case objErreur.TIMEOUT:
+            case objErreur.POSITION_UNAVAILABLE:
+                strErreur = "Votre position n'a pas pu être déterminée."
+                break;
+            default:
+                strErreur = "Erreur inconnue."
+                break;
+        };
+        alert(strErreur);
+    }, {
+        timeout: 20,
+        enableHighAccuracy: true,
+        maximumAge: 0
+    });
 }
