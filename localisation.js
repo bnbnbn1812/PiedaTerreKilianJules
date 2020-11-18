@@ -8,3 +8,4 @@ if (navigator.geolocation) {
         document.getElementById("heading").innerHTML = objPosition.coords.heading;
         document.getElementById("speed").innerHTML = objPosition.coords.speed;
     }
+}
